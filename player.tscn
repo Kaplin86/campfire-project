@@ -5,6 +5,9 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(22, 28)
+
 [node name="Node2D" type="Node2D" unique_id=1411649855]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=884548109]
@@ -16,3 +19,20 @@ shape = SubResource("CapsuleShape2D_0xm2m")
 [node name="Icon" type="Sprite2D" parent="CharacterBody2D" unique_id=746842756]
 scale = Vector2(0.16842489, 0.21606223)
 texture = ExtResource("2_i3pqv")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CharacterBody2D" unique_id=945460071]
+offset_left = -9.0
+offset_top = -26.000002
+offset_right = 119.0
+offset_bottom = 102.0
+scale = Vector2(0.1502417, 0.066872865)
+max_value = 10.0
+value = 10.0
+texture_progress = ExtResource("2_i3pqv")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=504288181]
+position = Vector2(-62, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=791935209]
+position = Vector2(62, -10)
+shape = SubResource("RectangleShape2D_onrkg")
