@@ -33,10 +33,10 @@ texture_progress = ExtResource("2_i3pqv")
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=504288181]
 position = Vector2(-62, 10)
-monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=791935209]
 position = Vector2(76.75, -10)
 shape = SubResource("RectangleShape2D_onrkg")
 
-[connection signal="body_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=996967853]
+zoom = Vector2(3.545, 3.545)
