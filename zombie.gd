@@ -17,8 +17,11 @@ func _process(delta):
 	$TextureProgressBar.value = health
 	if health <= 0:
 		queue_free()
-	if velocity.x <0:
-		pass
+	if velocity.x != 0:
+		if velocity.x <0:
+			$Area2D.position.x = -24.0
+		else:
+			$Area2D.position.x = 23.0
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerCharacter or body is FollowingEntity:
 		body.health = body.health - 1
