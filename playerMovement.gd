@@ -29,3 +29,15 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+	if Input.is_action_just_pressed("attack"):
+		$Area2D.set_deferred('monitoring',true)
+		await get_tree().create_timer(2).timeout
+		$Area2D.set_deferred('monitoring',false)
+	
+	
+	
+	
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is BaseEnemy:
+		body.health = body.health - 1
