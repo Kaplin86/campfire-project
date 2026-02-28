@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c0qm1ymwcnust"]
+[gd_scene format=3 uid="uid://c1k30nfy3pq56"]
 
 [ext_resource type="Script" uid="uid://b1kntf7hgt8f7" path="res://zombie.gd" id="1_roy8y"]
 [ext_resource type="Texture2D" uid="uid://bt5d31eg0dtnc" path="res://icon.svg" id="2_jmu02"]
@@ -21,6 +21,7 @@ texture = ExtResource("2_jmu02")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1253428339]
 position = Vector2(-24, -1)
+collision_mask = 3
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=619716660]
 shape = SubResource("CapsuleShape2D_7nqyo")

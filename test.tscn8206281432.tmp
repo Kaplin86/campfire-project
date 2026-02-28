@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ccfx1o2tjp4bv"]
 
 [ext_resource type="PackedScene" uid="uid://4si11mwbfg7c" path="res://player.tscn" id="1_37kl0"]
-[ext_resource type="PackedScene" uid="uid://c1k30nfy3pq56" path="res://zombie.tscn" id="2_8uh7m"]
+[ext_resource type="PackedScene" path="res://zombie.tscn" id="2_8uh7m"]
 [ext_resource type="PackedScene" uid="uid://c3deqmoxxpk0i" path="res://cat.tscn" id="3_6uqi0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8uh7m"]
@@ -16,8 +16,6 @@ position = Vector2(447, 256)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=536777570]
 position = Vector2(428, 360)
-collision_layer = 3
-collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=768065580]
 position = Vector2(61.5, 0)
@@ -25,8 +23,6 @@ shape = SubResource("RectangleShape2D_8uh7m")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1380780405]
 position = Vector2(504, 301)
-collision_layer = 3
-collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1814334183]
 position = Vector2(0, -3)
