@@ -32,7 +32,7 @@ value = 10.0
 texture_progress = ExtResource("2_i3pqv")
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=504288181]
-position = Vector2(-62, 10)
+position = Vector2(-90, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=791935209]
 position = Vector2(76.75, -10)

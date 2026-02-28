@@ -20,6 +20,12 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	$TextureProgressBar.value = health
+	if velocity.x != 0:
+		if velocity.x <0:
+			$Area2D.position.x = -90.0
+		else:
+			$Area2D.position.x = -62.0
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
