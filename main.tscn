@@ -1,21 +1,17 @@
 [gd_scene format=3 uid="uid://c4kg1xe330rhk"]
 
-[ext_resource type="Script" uid="uid://cu4pbfb0yja08" path="res://playerMovement.gd" id="1_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://bt5d31eg0dtnc" path="res://icon.svg" id="1_ig7tw"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://c2moyc7yb5itr" path="res://player.tscn" id="1_ig7tw"]
 
 [node name="Node2D" type="Node2D" unique_id=1576695505]
 
-[node name="Node2D" type="Node2D" parent="." unique_id=661570602]
+[node name="Player" parent="." unique_id=1411649855 instance=ExtResource("1_ig7tw")]
+position = Vector2(281, 84)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Node2D" unique_id=1327738914]
-position = Vector2(113, 19)
-script = ExtResource("1_0xm2m")
+[node name="Node2D" parent="." unique_id=451093390 instance=ExtResource("1_ig7tw")]
+position = Vector2(170, 14)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/CharacterBody2D" unique_id=1362853705]
-shape = SubResource("CapsuleShape2D_0xm2m")
+[node name="Node2D2" parent="." unique_id=884921614 instance=ExtResource("1_ig7tw")]
+position = Vector2(170, 103)
 
-[node name="Icon" type="Sprite2D" parent="Node2D/CharacterBody2D" unique_id=2124910154]
-scale = Vector2(0.16842489, 0.21606223)
-texture = ExtResource("1_ig7tw")
+[node name="Node2D3" parent="." unique_id=877502245 instance=ExtResource("1_ig7tw")]
+position = Vector2(247, 142)
