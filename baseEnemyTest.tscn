@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d15di8wmh06s"]
+
+[ext_resource type="Script" uid="uid://bn74ffndp6abl" path="res://meleeEnemy.gd" id="1_e6r32"]
+
+[node name="Node2D" type="CharacterBody2D" unique_id=612004149]
+script = ExtResource("1_e6r32")

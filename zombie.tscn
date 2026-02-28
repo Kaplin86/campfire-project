@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c0qm1ymwcnust"]
+
+[ext_resource type="Script" uid="uid://b1kntf7hgt8f7" path="res://zombie.gd" id="1_roy8y"]
+[ext_resource type="Texture2D" uid="uid://bt5d31eg0dtnc" path="res://icon.svg" id="2_jmu02"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eseir"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7nqyo"]
+
+[node name="BaseEnemy" type="CharacterBody2D" unique_id=21257629]
+script = ExtResource("1_roy8y")
+metadata/_custom_type_script = "uid://bbaqkch51csiv"
+metadata/_edit_horizontal_guides_ = [-22.0]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1770361282]
+shape = SubResource("CapsuleShape2D_eseir")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=2121022792]
+scale = Vector2(0.16842489, 0.21606223)
+texture = ExtResource("2_jmu02")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1253428339]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=619716660]
+shape = SubResource("CapsuleShape2D_7nqyo")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
