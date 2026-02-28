@@ -10,6 +10,10 @@ const JUMP_VELOCITY = -400.0
 func hui():
 	pass
 
+func _ready() -> void:
+	# adds it self to the ui's player objects
+	Ui.playerObjects.append(self)
+
 func _physics_process(delta: float) -> void:
 	$TextureProgressBar.value = health
 	# Add the gravity.

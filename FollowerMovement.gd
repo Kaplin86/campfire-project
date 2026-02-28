@@ -3,6 +3,7 @@ class_name FollowingEntity
 
 @export var health = 5
 @export var maxHealth = 5
+@export var isImportant = false
 
 var bindedPlayer : PlayerCharacter = null
 var movementSpeed = 6000
@@ -11,6 +12,9 @@ var JUMP_VELOCITY = -900.0
 
 @onready var healthBar = $TextureProgressBar
 
+func _ready():
+	if isImportant:
+		Ui.catObjects.append(self)
 
 func _physics_process(delta: float) -> void:
 	

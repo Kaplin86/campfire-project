@@ -12,6 +12,7 @@ radius = 94.13288
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_52fj1")
+isImportant = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1066881276]
 offset_left = -9.0
