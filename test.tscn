@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c2moyc7yb5itr" path="res://player.tscn" id="1_37kl0"]
 [ext_resource type="PackedScene" uid="uid://c1k30nfy3pq56" path="res://zombie.tscn" id="2_8uh7m"]
 [ext_resource type="PackedScene" uid="uid://c3deqmoxxpk0i" path="res://cat.tscn" id="3_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://0c3r7kc7030e" path="res://BabyZombie.tscn" id="4_ppyta"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8uh7m"]
 size = Vector2(467, 20)
@@ -55,3 +56,6 @@ position = Vector2(534, 253)
 
 [node name="Cat" parent="." unique_id=156113061 instance=ExtResource("3_6uqi0")]
 position = Vector2(263, 175)
+
+[node name="BaseEnemy2" parent="." unique_id=848882131 instance=ExtResource("4_ppyta")]
+position = Vector2(680, 226)

@@ -1,7 +1,7 @@
 extends MeleeEnemy
-
+@export var offset = 24
 var bindedPlayer : PlayerCharacter = null
-var movementSpeed = 6000
+@export var movementSpeed = 6000
 func _on_vision_body_entered(body: Node2D) -> void:
 	
 	if body is PlayerCharacter:
@@ -19,9 +19,9 @@ func _process(delta):
 		queue_free()
 	if velocity.x != 0:
 		if velocity.x <0:
-			$Area2D.position.x = -24.0
+			$Area2D.position.x = -offset
 		else:
-			$Area2D.position.x = 23.0
+			$Area2D.position.x = offset
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerCharacter or body is FollowingEntity:
 		body.health = body.health - 1

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://0c3r7kc7030e"]
+
+[ext_resource type="Script" uid="uid://b1kntf7hgt8f7" path="res://zombie.gd" id="1_4ndco"]
+[ext_resource type="Texture2D" uid="uid://bt5d31eg0dtnc" path="res://icon.svg" id="2_rskfn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ndco"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rskfn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_82gkt"]
+radius = 42.296574
+
+[node name="BaseEnemy" type="CharacterBody2D" unique_id=21257629]
+script = ExtResource("1_4ndco")
+offset = 11
+movementSpeed = 9247
+health = 5
+maxhp = 5
+metadata/_custom_type_script = "uid://bbaqkch51csiv"
+metadata/_edit_horizontal_guides_ = [-22.0]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1770361282]
+shape = SubResource("CapsuleShape2D_4ndco")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=2121022792]
+scale = Vector2(0.071118906, 0.0912342)
+texture = ExtResource("2_rskfn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1253428339]
+position = Vector2(11, 0)
+collision_mask = 3
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=619716660]
+shape = SubResource("CircleShape2D_rskfn")
+
+[node name="Vision" type="Area2D" parent="." unique_id=973987357]
+modulate = Color(1, 0, 1, 1)
+show_behind_parent = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision" unique_id=734883329]
+shape = SubResource("CircleShape2D_82gkt")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1438381562]
+offset_left = -9.0
+offset_top = -26.000002
+offset_right = 119.0
+offset_bottom = 102.0
+scale = Vector2(0.1502417, 0.066872865)
+max_value = 10.0
+value = 10.0
+texture_progress = ExtResource("2_rskfn")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Vision" to="." method="_on_vision_body_entered"]
