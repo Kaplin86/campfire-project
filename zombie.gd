@@ -9,4 +9,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		await get_tree().create_timer(2).timeout
 		$Area2D.set_deferred('monitoring',true)
 		
+		$TextureProgressBar.value = health
+		
 	print(body)
