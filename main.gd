@@ -15,3 +15,6 @@ func _process(delta: float) -> void:
 		if !queuedUp:
 			queuedUp = true
 			$TileMapLayer.slowlyRemoveTiles()
+
+func _ready() -> void:
+	Ui.visible = true

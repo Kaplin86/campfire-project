@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://do48t7k4g0og7"]
 
+[ext_resource type="Script" uid="uid://c6iawfv6dy2lw" path="res://main_menu.gd" id="1_hvu0j"]
 [ext_resource type="Texture2D" uid="uid://bvb62bmn5ps6j" path="res://miscImages/light.svg" id="1_wc2lj"]
 [ext_resource type="Texture2D" uid="uid://6w8icv6te5ak" path="res://miscImages/Frame 1 (2).svg" id="1_wut1r"]
 [ext_resource type="AudioStream" uid="uid://djuu5ybflqv8r" path="res://Music/CatInTheCavernMainTheme.mp3" id="2_w7d22"]
@@ -22,6 +23,7 @@ color_ramp = SubResource("Gradient_wc2lj")
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="MainMenu" type="Node2D" unique_id=157756703]
+script = ExtResource("1_hvu0j")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=790493158]
 anchors_preset = 15
