@@ -17,6 +17,7 @@ func hui():
 func _ready() -> void:
 	# adds it self to the ui's player objects
 	Ui.playerObjects.append(self)
+	$AnimatedSprite2D.play()
 
 func _physics_process(delta: float) -> void:
 	$TextureProgressBar.value = health
@@ -58,6 +59,23 @@ func _physics_process(delta: float) -> void:
 			
 			_on_area_2d_body_entered(enemy)
 	
+	
+	
+	if abs(velocity.x) <= 0.2:
+		$AnimatedSprite2D.animation = "default"
+	else:
+		$AnimatedSprite2D.animation = "walk"
+		print("vis change")
+		if velocity.x<0:
+			$AnimatedSprite2D.flip_h = false
+		else:
+			$AnimatedSprite2D.flip_h = true
+	
+	if not abs(velocity.y) <= 0.2:
+		if velocity.y<0:
+			$AnimatedSprite2D.animation = "air"
+		else:
+			$AnimatedSprite2D.animation = "fall"
 	
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
