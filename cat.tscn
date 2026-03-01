@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://c3deqmoxxpk0i"]
 
 [ext_resource type="Script" uid="uid://bf5cq7pekkpup" path="res://FollowerMovement.gd" id="1_52fj1"]
-[ext_resource type="Texture2D" uid="uid://bt5d31eg0dtnc" path="res://icon.svg" id="2_6fl1u"]
 [ext_resource type="Texture2D" uid="uid://ckj0a1vigwblb" path="res://catSprites/idle1.svg" id="3_w46py"]
 [ext_resource type="Texture2D" uid="uid://baa4agq7cqfvq" path="res://catSprites/idle2.svg" id="4_2u0g4"]
 [ext_resource type="Texture2D" uid="uid://ccit0hvqilqit" path="res://catSprites/walk1.svg" id="5_eyw7o"]
 [ext_resource type="Texture2D" uid="uid://ctqu8nq6b64jh" path="res://catSprites/walk2.svg" id="6_7rjga"]
 [ext_resource type="Texture2D" uid="uid://cnylcnki5d6jn" path="res://catSprites/walk3.svg" id="7_giwe8"]
+[ext_resource type="Texture2D" uid="uid://c0xqwgew3hlj2" path="res://miscImages/hpbar.svg" id="8_eyw7o"]
 [ext_resource type="Texture2D" uid="uid://bel2ctdkgms1n" path="res://catSprites/walk4.svg" id="8_ma4b3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w46py"]
@@ -51,16 +51,6 @@ collision_mask = 2
 script = ExtResource("1_52fj1")
 isImportant = true
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1066881276]
-offset_left = -9.0
-offset_top = -26.000002
-offset_right = 119.0
-offset_bottom = 102.0
-scale = Vector2(0.1502417, 0.066872865)
-max_value = 10.0
-value = 10.0
-texture_progress = ExtResource("2_6fl1u")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=322369839]
 shape = SubResource("CapsuleShape2D_w46py")
 
@@ -70,7 +60,7 @@ position = Vector2(0, 6)
 scale = Vector2(0.216, 0.216)
 sprite_frames = SubResource("SpriteFrames_2hdoq")
 animation = &"walk"
-frame_progress = 0.8893518
+frame_progress = 0.53734666
 
 [node name="Vision" type="Area2D" parent="." unique_id=177657179]
 modulate = Color(1, 0, 1, 1)
@@ -81,5 +71,17 @@ shape = SubResource("CircleShape2D_52fj1")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=719452339]
 target_position = Vector2(107, -93)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1881591261]
+offset_left = -9.0
+offset_top = -8.000001
+offset_right = 47.0
+offset_bottom = -1.000001
+scale = Vector2(0.32538477, 0.43083683)
+max_value = 10.0
+value = 10.0
+texture_under = ExtResource("8_eyw7o")
+texture_progress = ExtResource("8_eyw7o")
+tint_under = Color(0.23874435, 0.23874438, 0.23874435, 1)
 
 [connection signal="body_entered" from="Vision" to="." method="_on_vision_body_entered"]

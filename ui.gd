@@ -16,6 +16,9 @@ func _process(delta: float) -> void:
 	if died:
 		$DeathScreen.visible = true
 
+func set_depth(de):
+	$depth.text = "DEPTH: " + str(de)
+
 func showBlocksRem(current,total):
 	$BlocksRem.text = "Blocks Remaining: " + str(current) + " / " + str(total)
 

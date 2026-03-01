@@ -2,6 +2,7 @@ extends TileMapLayer
 
 var heightsOfSegment = {}
 var spawnPosition = null
+var highestYShare = 0
 
 signal caveGenDone
 
@@ -35,10 +36,22 @@ func _generate_cave(cavewidth,caveheight):
 		Xpos += (1 - (randf() * 2)) * 20
 		Xpos = clamp(Xpos,cavewidth * 0.1,cavewidth * 0.9)
 	
+	var highestY = 999
+	
 	for Pos in get_used_cells_by_id(0,Vector2.ONE):
 		set_cell(Pos,-1)
+		if Pos.y < highestY:
+			highestY = Pos.y
+	
+	highestY += 2
+	highestYShare = highestY
+	
+	for I in 50:
+		for X in cavewidth:
+			set_cell(Vector2(X,highestY - I),-1)
 	
 	caveGenDone.emit()
+	
 
 
 

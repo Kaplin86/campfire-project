@@ -11,6 +11,9 @@ const JUMP_VELOCITY = -400.0
 var inAirLastFrame = false
 var lastAirVelocity = Vector2.ZERO
 
+var timeSincePunch = 09
+var punchAnimDuration = 0.3
+
 func hui():
 	pass
 
@@ -20,6 +23,7 @@ func _ready() -> void:
 	$AnimatedSprite2D.play()
 
 func _physics_process(delta: float) -> void:
+	timeSincePunch += delta
 	$TextureProgressBar.value = health
 	if velocity.x != 0:
 		if velocity.x <0:
@@ -52,30 +56,41 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+	if timeSincePunch < punchAnimDuration:
+		$AnimatedSprite2D.animation = "punch"
+	else:
+	
+		if abs(velocity.x) <= 0.2:
+			$AnimatedSprite2D.animation = "default"
+		else:
+			$AnimatedSprite2D.animation = "walk"
+			print("vis change")
+			if velocity.x<0:
+				$AnimatedSprite2D.flip_h = false
+			else:
+				$AnimatedSprite2D.flip_h = true
+		
+		if not abs(velocity.y) <= 0.2:
+			if velocity.y<0:
+				$AnimatedSprite2D.animation = "air"
+			else:
+				$AnimatedSprite2D.animation = "fall"
+	
+	
+	
 	$Area2D.visible = $Area2D.monitoring
 	if Input.is_action_just_pressed("attack"):
-		
+		timeSincePunch = 0
 		for enemy in $Area2D.get_overlapping_bodies():
 			
 			_on_area_2d_body_entered(enemy)
+			
 	
+	if timeSincePunch < punchAnimDuration:
+		if $AnimatedSprite2D.animation != "punch":
+			$AnimatedSprite2D.play("punch")
 	
-	
-	if abs(velocity.x) <= 0.2:
-		$AnimatedSprite2D.animation = "default"
-	else:
-		$AnimatedSprite2D.animation = "walk"
-		print("vis change")
-		if velocity.x<0:
-			$AnimatedSprite2D.flip_h = false
-		else:
-			$AnimatedSprite2D.flip_h = true
-	
-	if not abs(velocity.y) <= 0.2:
-		if velocity.y<0:
-			$AnimatedSprite2D.animation = "air"
-		else:
-			$AnimatedSprite2D.animation = "fall"
 	
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:

@@ -7,10 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://c3deqmoxxpk0i" path="res://cat.tscn" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://bohxamxblyk0x" path="res://tile_placing_system.gd" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://unbyk3edspqj" path="res://enemy_spawning_system.gd" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://dgxx6gxvjx1ie" path="res://depth_display_system.gd" id="8_5vw27"]
 
 [sub_resource type="Gradient" id="Gradient_272bh"]
 offsets = PackedFloat32Array(0, 0.536, 1)
-colors = PackedColorArray(0.39537683, 0.4831848, 0.29120988, 1, 0.7978212, 0.5147169, 0.9635275, 1, 0.22430414, 0.22430411, 0.22430405, 1)
+colors = PackedColorArray(0.39537683, 0.4831848, 0.29120988, 1, 0.1524083, 0.012870488, 0.21829712, 1, 0.22430414, 0.22430411, 0.22430405, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_5vw27"]
 
@@ -46,6 +47,9 @@ BlockCount = 15
 script = ExtResource("6_7mycd")
 spawnRates = 0.01
 
+[node name="DepthDisplaySystem" type="Node" parent="." unique_id=79547604]
+script = ExtResource("8_5vw27")
+
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1802779259]
 color = Color(0.038397163, 0.038397174, 0.038397145, 1)
 
@@ -53,6 +57,15 @@ color = Color(0.038397163, 0.038397174, 0.038397145, 1)
 layer = -1
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1368949052]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_kek77")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer" unique_id=231101376]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

@@ -1,7 +1,21 @@
-[gd_scene format=3 uid="uid://0c3r7kc7030e"]
+[gd_scene format=3 uid="uid://cumeesilmhyuf"]
 
 [ext_resource type="Script" uid="uid://b1kntf7hgt8f7" path="res://zombie.gd" id="1_4ndco"]
 [ext_resource type="Texture2D" uid="uid://bt5d31eg0dtnc" path="res://icon.svg" id="2_rskfn"]
+[ext_resource type="Texture2D" uid="uid://c0xqwgew3hlj2" path="res://miscImages/hpbar.svg" id="3_rskfn"]
+[ext_resource type="Texture2D" uid="uid://7hpbuos3ytbf" path="res://plyrSprites/air1.svg" id="4_x6c1j"]
+[ext_resource type="Texture2D" uid="uid://bc6icahgpk5k0" path="res://plyrSprites/air2.svg" id="5_rb5x8"]
+[ext_resource type="Texture2D" uid="uid://d074b1hveahp5" path="res://plyrSprites/idle1.svg" id="6_7qimm"]
+[ext_resource type="Texture2D" uid="uid://cynyq2jt5y51a" path="res://plyrSprites/idle2.svg" id="7_y7sqd"]
+[ext_resource type="Texture2D" uid="uid://bprk3wh4onlck" path="res://plyrSprites/fall1.svg" id="8_k2uqu"]
+[ext_resource type="Texture2D" uid="uid://cf652hct31ns5" path="res://plyrSprites/fall2.svg" id="9_tiy0b"]
+[ext_resource type="Texture2D" uid="uid://c7xosv1vcys63" path="res://plyrSprites/punch2.svg" id="10_jpuhm"]
+[ext_resource type="Texture2D" uid="uid://d20mr62reu28p" path="res://plyrSprites/punch3.svg" id="11_tjkdv"]
+[ext_resource type="Texture2D" uid="uid://cmun2rniwr81r" path="res://plyrSprites/punch1.svg" id="12_buh8h"]
+[ext_resource type="Texture2D" uid="uid://6ypicu00tvw7" path="res://plyrSprites/walk1.svg" id="13_frxik"]
+[ext_resource type="Texture2D" uid="uid://cobsla0xkasgi" path="res://plyrSprites/walk2.svg" id="14_brhbn"]
+[ext_resource type="Texture2D" uid="uid://b56jffy5i3xoc" path="res://plyrSprites/walk3.svg" id="15_87n0g"]
+[ext_resource type="Texture2D" uid="uid://bspmbwo3ffax" path="res://plyrSprites/walk4.svg" id="16_k7chm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ndco"]
 radius = 5.0
@@ -10,6 +24,73 @@ radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_82gkt"]
 radius = 42.296574
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sdhdi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_x6c1j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rb5x8")
+}],
+"loop": true,
+"name": &"air",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_7qimm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_y7sqd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_k2uqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tiy0b")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_jpuhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tjkdv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_buh8h")
+}],
+"loop": true,
+"name": &"punch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_frxik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_brhbn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_87n0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_k7chm")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [node name="BaseEnemy" type="CharacterBody2D" unique_id=21257629]
 script = ExtResource("1_4ndco")
@@ -24,6 +105,7 @@ metadata/_edit_horizontal_guides_ = [-22.0]
 shape = SubResource("CapsuleShape2D_4ndco")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=2121022792]
+visible = false
 scale = Vector2(0.071118906, 0.0912342)
 texture = ExtResource("2_rskfn")
 
@@ -41,15 +123,24 @@ show_behind_parent = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision" unique_id=734883329]
 shape = SubResource("CircleShape2D_82gkt")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1438381562]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=2043087666]
 offset_left = -9.0
-offset_top = -26.000002
-offset_right = 119.0
-offset_bottom = 102.0
-scale = Vector2(0.1502417, 0.066872865)
+offset_top = -11.000001
+offset_right = 47.0
+offset_bottom = -4.000001
+scale = Vector2(0.32538477, 0.43083683)
 max_value = 10.0
 value = 10.0
-texture_progress = ExtResource("2_rskfn")
+texture_under = ExtResource("3_rskfn")
+texture_progress = ExtResource("3_rskfn")
+tint_under = Color(0.23874435, 0.23874438, 0.23874435, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=643040164]
+modulate = Color(0.17402825, 0.17402825, 0.17402825, 1)
+position = Vector2(0, 3)
+scale = Vector2(0.10200524, 0.16347511)
+sprite_frames = SubResource("SpriteFrames_sdhdi")
+speed_scale = 4.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Vision" to="." method="_on_vision_body_entered"]
