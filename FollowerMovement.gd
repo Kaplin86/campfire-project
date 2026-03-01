@@ -47,7 +47,12 @@ func _physics_process(delta: float) -> void:
 			velocity.x = (directionToPlayer.normalized() * movementSpeed * delta).x
 		else:
 			var directionToPlayer = bindedPlayer.global_position - global_position
-			velocity.x = (directionToPlayer.normalized() * movementSpeed * delta).x
+			print("the change is",directionToPlayer.x)
+			if abs(directionToPlayer.x) > 5:
+				velocity.x = (directionToPlayer.normalized() * movementSpeed * delta).x
+			else:
+				velocity.x = 0
+			
 	
 	# the gravite
 	if is_on_floor():
@@ -65,6 +70,7 @@ func _physics_process(delta: float) -> void:
 	if abs(velocity.x) <= 0.1 and bindedPlayer != null:
 		var directionToPlayer = bindedPlayer.global_position - global_position
 		velocity.x += clamp(directionToPlayer.x,-0.1,0.1)
+		
 	
 	if velocity.x != 0:
 		if velocity.x > 0:
@@ -77,6 +83,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		$AnimatedSprite2D.animation = "walk"
 		print("vis change")
+		print(velocity.x)
 		if velocity.x<0:
 			$AnimatedSprite2D.flip_h = false
 		else:

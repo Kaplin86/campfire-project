@@ -14,6 +14,7 @@ shader_parameter/palette = ExtResource("2_jibf1")
 shader_parameter/palette_size = 66
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=109687298]
+process_priority = 4
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=627024514]
 material = SubResource("ShaderMaterial_klq6e")
@@ -22,3 +23,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2

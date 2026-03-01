@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://c5kb1q3sfrpmo"]
+
+[ext_resource type="Texture2D" uid="uid://c5swinyqxq6s2" path="res://tutorialImages/tutorial1.png" id="1_7n6eb"]
+[ext_resource type="Script" uid="uid://bwgny0v662ndj" path="res://deleteParentButton.gd" id="2_yb1ct"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_cgksj"]
+content_margin_left = 0.0
+content_margin_top = 4.0
+content_margin_right = 0.0
+content_margin_bottom = 4.0
+color = Color(0.5, 0.5, 0.5, 1)
+thickness = 5
+vertical = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb1ct"]
+atlas = ExtResource("1_7n6eb")
+region = Rect2(207.83266, 85.156136, 406.6667, 375.57104)
+
+[node name="Node2D" type="Node2D" unique_id=535549764]
+
+[node name="Panel" type="Panel" parent="." unique_id=1053374826]
+offset_left = 13.0
+offset_top = 12.0
+offset_right = 1141.0
+offset_bottom = 640.0
+
+[node name="Label" type="Label" parent="Panel" unique_id=1785120819]
+layout_mode = 0
+offset_right = 423.09695
+offset_bottom = 68.0
+scale = Vector2(2.6566014, 3.2932062)
+theme_override_font_sizes/font_size = 49
+text = "HOW 2 CAVEDIVE"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel" unique_id=1792524115]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 193.0
+offset_right = 698.0
+offset_bottom = 216.0
+text = "By Cat Mc. Miner Cat (The Third)"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=2007384159]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 230.0
+offset_right = 314.0
+offset_bottom = 576.0
+theme_override_font_sizes/normal_font_size = 24
+text = "Ur prob4bly reading this since u lost ur cat in the cavern!! dont worryym, if your reading this, you already found your cat. now you need to get out safely. Here are my tips and tricksm!!1
+meow!"
+
+[node name="VSeparator" type="VSeparator" parent="Panel" unique_id=114518105]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 207.0
+offset_right = 397.0
+offset_bottom = 608.0
+theme_override_styles/separator = SubResource("StyleBoxLine_cgksj")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel" unique_id=1601710378]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 236.0
+offset_right = 630.0
+offset_bottom = 394.0
+theme_override_font_sizes/normal_font_size = 24
+text = "1. You need to get out of the cave without either you or your cat dying!!"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Panel" unique_id=1143370177]
+layout_mode = 0
+offset_left = 616.0
+offset_top = 494.0
+offset_right = 851.0
+offset_bottom = 570.0
+theme_override_font_sizes/normal_font_size = 24
+text = "2. Click to punch away the zombies!!"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Panel" unique_id=1700273213]
+layout_mode = 0
+offset_left = 836.0
+offset_top = 215.0
+offset_right = 1117.0
+offset_bottom = 409.0
+theme_override_font_sizes/normal_font_size = 24
+text = "3. Hold shift and click to place blocks. Once you place all of the blocks, hold shift to retrieve them!"
+
+[node name="Tutorial1" type="Sprite2D" parent="." unique_id=1453039003]
+position = Vector2(498.00003, 501)
+scale = Vector2(0.5551756, 0.5113333)
+texture = SubResource("AtlasTexture_yb1ct")
+
+[node name="Button" type="Button" parent="." unique_id=859874235]
+offset_left = 1017.0
+offset_top = 19.0
+offset_right = 1134.0
+offset_bottom = 69.0
+text = "X"
+script = ExtResource("2_yb1ct")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

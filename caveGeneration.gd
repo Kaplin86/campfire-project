@@ -9,6 +9,10 @@ signal caveGenDone
 func indexSegments():
 	pass
 
+func slowlyRemoveTiles():
+	for I in get_used_cells():
+		await get_tree().create_timer(0.01).timeout
+		set_cell(I,-1)
 
 func _ready() -> void:
 	

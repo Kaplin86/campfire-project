@@ -8,16 +8,19 @@
 [ext_resource type="Script" uid="uid://bohxamxblyk0x" path="res://tile_placing_system.gd" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://unbyk3edspqj" path="res://enemy_spawning_system.gd" id="6_7mycd"]
 [ext_resource type="Script" uid="uid://dgxx6gxvjx1ie" path="res://depth_display_system.gd" id="8_5vw27"]
+[ext_resource type="AudioStream" uid="uid://djuu5ybflqv8r" path="res://Music/CatInTheCavernMainTheme.mp3" id="9_4c57u"]
+[ext_resource type="Script" uid="uid://b6iv4qjfk20a6" path="res://loopingMusic.gd" id="10_efxa6"]
+[ext_resource type="PackedScene" uid="uid://c5kb1q3sfrpmo" path="res://tutorial.tscn" id="11_efxa6"]
 
-[sub_resource type="Gradient" id="Gradient_272bh"]
+[sub_resource type="Gradient" id="Gradient_pj2mc"]
 offsets = PackedFloat32Array(0, 0.536, 1)
-colors = PackedColorArray(0.39537683, 0.4831848, 0.29120988, 1, 0.1524083, 0.012870488, 0.21829712, 1, 0.22430414, 0.22430411, 0.22430405, 1)
+colors = PackedColorArray(0.30588236, 0.28627452, 0.37254903, 1, 0.05882353, 0.16470589, 0.24705882, 1, 0.1254902, 0.22352941, 0.30980393, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_5vw27"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4r5tf"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kek77"]
-noise = SubResource("FastNoiseLite_5vw27")
-color_ramp = SubResource("Gradient_272bh")
+noise = SubResource("FastNoiseLite_4r5tf")
+color_ramp = SubResource("Gradient_pj2mc")
 
 [node name="Node2D" type="Node2D" unique_id=1576695505 node_paths=PackedStringArray("plyr", "cat")]
 script = ExtResource("1_h2yge")
@@ -82,4 +85,16 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("NoiseTexture2D_kek77")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=482760464]
+stream = ExtResource("9_4c57u")
+pitch_scale = 0.98
+autoplay = true
+script = ExtResource("10_efxa6")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=732499634]
+layer = 2
+
+[node name="Node2D" parent="CanvasLayer2" unique_id=535549764 instance=ExtResource("11_efxa6")]
+
 [connection signal="caveGenDone" from="TileMapLayer" to="." method="_on_tile_map_layer_cave_gen_done"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]

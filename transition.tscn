@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b1qlf3mh22psk"]
+
+[ext_resource type="Shader" uid="uid://cr0vjrmj11ph7" path="res://transition.gdshader" id="1_2gi1b"]
+[ext_resource type="Script" uid="uid://e4vpdqxk6hee" path="res://transition.gd" id="1_pj2mc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pj2mc"]
+shader = ExtResource("1_2gi1b")
+shader_parameter/AspectRatio = 1.5
+shader_parameter/Diamonds = 10.0
+shader_parameter/pixel_size = 0.08
+shader_parameter/height = -1.0
+shader_parameter/disable_pixel = true
+
+[sub_resource type="Gradient" id="Gradient_pj2mc"]
+offsets = PackedFloat32Array(0, 0.536, 1)
+colors = PackedColorArray(0.30588236, 0.28627452, 0.37254903, 1, 0.05882353, 0.16470589, 0.24705882, 1, 0.1254902, 0.22352941, 0.30980393, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4r5tf"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kek77"]
+noise = SubResource("FastNoiseLite_4r5tf")
+color_ramp = SubResource("Gradient_pj2mc")
+
+[node name="Transition" type="CanvasLayer" unique_id=100963965]
+script = ExtResource("1_pj2mc")
+
+[node name="ColorRect" type="TextureRect" parent="." unique_id=2091024798]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_pj2mc")
+offset_right = 1152.0
+offset_bottom = 650.0
+mouse_filter = 2
+texture = SubResource("NoiseTexture2D_kek77")
