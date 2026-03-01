@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://hxdgm47nnauh"]
+
+[ext_resource type="Shader" uid="uid://4f2rlkj06hh4" path="res://shader/screenQuantizer.gdshader" id="1_jibf1"]
+[ext_resource type="Texture2D" uid="uid://dipsahiwwi4wh" path="res://shader/bayer8x8.png" id="2_72hay"]
+[ext_resource type="Texture2D" uid="uid://dr366at6xavlj" path="res://shader/nyx8-1x.png" id="2_jibf1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_klq6e"]
+shader = ExtResource("1_jibf1")
+shader_parameter/levels = 8
+shader_parameter/threshold = 0.3
+shader_parameter/pixelate = 1
+shader_parameter/dither_texture = ExtResource("2_72hay")
+shader_parameter/palette = ExtResource("2_jibf1")
+shader_parameter/palette_size = 66
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=109687298]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=627024514]
+material = SubResource("ShaderMaterial_klq6e")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

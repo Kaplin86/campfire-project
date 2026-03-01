@@ -79,8 +79,10 @@ visible = false
 shape = SubResource("CapsuleShape2D_0xm2m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1542952169]
+modulate = Color(0.17402825, 0.17402825, 0.17402825, 1)
 scale = Vector2(0.216, 0.216)
 sprite_frames = SubResource("SpriteFrames_bwjto")
+frame_progress = 0.7307187
 speed_scale = 4.0
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=945460071]

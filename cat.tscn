@@ -65,11 +65,12 @@ texture_progress = ExtResource("2_6fl1u")
 shape = SubResource("CapsuleShape2D_w46py")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=307918365]
+modulate = Color(0.30938497, 0.30938527, 0.3093851, 1)
 position = Vector2(0, 6)
 scale = Vector2(0.216, 0.216)
 sprite_frames = SubResource("SpriteFrames_2hdoq")
 animation = &"walk"
-frame_progress = 0.5409555
+frame_progress = 0.8893518
 
 [node name="Vision" type="Area2D" parent="." unique_id=177657179]
 modulate = Color(1, 0, 1, 1)

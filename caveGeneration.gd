@@ -33,6 +33,7 @@ func _generate_cave(cavewidth,caveheight):
 		set_pattern(Vector2i(Xpos,Ylevel),pickedPatternObject)
 		Ylevel -= 2
 		Xpos += (1 - (randf() * 2)) * 20
+		Xpos = clamp(Xpos,cavewidth * 0.1,cavewidth * 0.9)
 	
 	for Pos in get_used_cells_by_id(0,Vector2.ONE):
 		set_cell(Pos,-1)

@@ -3,9 +3,20 @@
 [ext_resource type="Script" uid="uid://dqljtuhqgtfme" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c2moyc7yb5itr" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://ctmqd0d4k41" path="res://caveGenScene.tscn" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://bvb62bmn5ps6j" path="res://miscImages/light.svg" id="3_272bh"]
 [ext_resource type="PackedScene" uid="uid://c3deqmoxxpk0i" path="res://cat.tscn" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://bohxamxblyk0x" path="res://tile_placing_system.gd" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://unbyk3edspqj" path="res://enemy_spawning_system.gd" id="6_7mycd"]
+
+[sub_resource type="Gradient" id="Gradient_272bh"]
+offsets = PackedFloat32Array(0, 0.536, 1)
+colors = PackedColorArray(0.39537683, 0.4831848, 0.29120988, 1, 0.7978212, 0.5147169, 0.9635275, 1, 0.22430414, 0.22430411, 0.22430405, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5vw27"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kek77"]
+noise = SubResource("FastNoiseLite_5vw27")
+color_ramp = SubResource("Gradient_272bh")
 
 [node name="Node2D" type="Node2D" unique_id=1576695505 node_paths=PackedStringArray("plyr", "cat")]
 script = ExtResource("1_h2yge")
@@ -14,6 +25,11 @@ cat = NodePath("Cat")
 
 [node name="Player" parent="." unique_id=1411649855 instance=ExtResource("1_ig7tw")]
 position = Vector2(230, 364)
+
+[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=1686488250]
+show_behind_parent = true
+energy = 1.3
+texture = ExtResource("3_272bh")
 
 [node name="TileMapLayer" parent="." unique_id=1312139782 instance=ExtResource("3_1bvp3")]
 scale = Vector2(0.1, 0.1)
@@ -29,5 +45,28 @@ BlockCount = 15
 [node name="EnemySpawningSystem" type="Node" parent="." unique_id=1371353805]
 script = ExtResource("6_7mycd")
 spawnRates = 0.01
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1802779259]
+color = Color(0.038397163, 0.038397174, 0.038397145, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=361023460]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1368949052]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_kek77")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer" unique_id=1409379118]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_kek77")
 
 [connection signal="caveGenDone" from="TileMapLayer" to="." method="_on_tile_map_layer_cave_gen_done"]
