@@ -28,6 +28,8 @@ func _ready():
 	RePathTimer.timeout.connect(makepath);
 	navi.debug_enabled = true
 	navi.navigation_layers = 1
+	
+	$AnimatedSprite2D.play()
 
 func makepath():
 	if bindedPlayer:
@@ -69,6 +71,22 @@ func _physics_process(delta: float) -> void:
 			$RayCast2D.target_position.x = 107.0
 		else:
 			$RayCast2D.target_position.x = -107.0
+	
+	if abs(velocity.x) <= 0.2:
+		$AnimatedSprite2D.animation = "default"
+	else:
+		$AnimatedSprite2D.animation = "walk"
+		print("vis change")
+		if velocity.x<0:
+			$AnimatedSprite2D.flip_h = false
+		else:
+			$AnimatedSprite2D.flip_h = true
+	
+	#if not abs(velocity.y) <= 0.2:
+		#if velocity.y<0:
+		#	$AnimatedSprite2D.animation = "air"
+		#else:
+		#	$AnimatedSprite2D.animation = "fall"
 	
 	move_and_slide()
 

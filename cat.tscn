@@ -2,8 +2,45 @@
 
 [ext_resource type="Script" uid="uid://bf5cq7pekkpup" path="res://FollowerMovement.gd" id="1_52fj1"]
 [ext_resource type="Texture2D" uid="uid://bt5d31eg0dtnc" path="res://icon.svg" id="2_6fl1u"]
+[ext_resource type="Texture2D" uid="uid://ckj0a1vigwblb" path="res://catSprites/idle1.svg" id="3_w46py"]
+[ext_resource type="Texture2D" uid="uid://baa4agq7cqfvq" path="res://catSprites/idle2.svg" id="4_2u0g4"]
+[ext_resource type="Texture2D" uid="uid://ccit0hvqilqit" path="res://catSprites/walk1.svg" id="5_eyw7o"]
+[ext_resource type="Texture2D" uid="uid://ctqu8nq6b64jh" path="res://catSprites/walk2.svg" id="6_7rjga"]
+[ext_resource type="Texture2D" uid="uid://cnylcnki5d6jn" path="res://catSprites/walk3.svg" id="7_giwe8"]
+[ext_resource type="Texture2D" uid="uid://bel2ctdkgms1n" path="res://catSprites/walk4.svg" id="8_ma4b3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w46py"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hdoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_w46py")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2u0g4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_eyw7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7rjga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_giwe8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ma4b3")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_52fj1"]
 radius = 94.13288
@@ -27,10 +64,12 @@ texture_progress = ExtResource("2_6fl1u")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=322369839]
 shape = SubResource("CapsuleShape2D_w46py")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1697376142]
-modulate = Color(0.34509805, 0.40392157, 0.7411765, 1)
-scale = Vector2(0.16842489, 0.21606223)
-texture = ExtResource("2_6fl1u")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=307918365]
+position = Vector2(0, 6)
+scale = Vector2(0.216, 0.216)
+sprite_frames = SubResource("SpriteFrames_2hdoq")
+animation = &"walk"
+frame_progress = 0.5409555
 
 [node name="Vision" type="Area2D" parent="." unique_id=177657179]
 modulate = Color(1, 0, 1, 1)
