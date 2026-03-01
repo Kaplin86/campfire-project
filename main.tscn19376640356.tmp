@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://bohxamxblyk0x" path="res://tile_placing_system.gd" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://unbyk3edspqj" path="res://enemy_spawning_system.gd" id="6_7mycd"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7mycd"]
+
 [node name="Node2D" type="Node2D" unique_id=1576695505 node_paths=PackedStringArray("plyr", "cat")]
 script = ExtResource("1_h2yge")
 plyr = NodePath("Player")
@@ -28,6 +30,11 @@ BlockCount = 15
 
 [node name="EnemySpawningSystem" type="Node" parent="." unique_id=1371353805]
 script = ExtResource("6_7mycd")
-spawnRates = 0.01
+
+[node name="Area2D" type="Area2D" parent="EnemySpawningSystem" unique_id=1438106638]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpawningSystem/Area2D" unique_id=1599179502]
+position = Vector2(333, 322)
+shape = SubResource("CircleShape2D_7mycd")
 
 [connection signal="caveGenDone" from="TileMapLayer" to="." method="_on_tile_map_layer_cave_gen_done"]

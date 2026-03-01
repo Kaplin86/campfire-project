@@ -25,9 +25,10 @@ position = Vector2(200, 283)
 script = ExtResource("5_lquwl")
 tilemap = NodePath("../TileMapLayer")
 BlockCount = 15
+buildingTileAtlasCords = null
+resetTime = null
 
 [node name="EnemySpawningSystem" type="Node" parent="." unique_id=1371353805]
 script = ExtResource("6_7mycd")
-spawnRates = 0.01
 
 [connection signal="caveGenDone" from="TileMapLayer" to="." method="_on_tile_map_layer_cave_gen_done"]
