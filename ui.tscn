@@ -10,6 +10,19 @@ offset_right = 61.0
 offset_bottom = 23.0
 text = "DEPTH: "
 
+[node name="BlocksRem" type="Label" parent="." unique_id=2069744565]
+offset_left = 499.0
+offset_top = 600.0
+offset_right = 640.0
+offset_bottom = 623.0
+text = "Blocks Remaining:"
+
+[node name="ResetBlocks" type="ProgressBar" parent="." unique_id=159200028]
+offset_left = 508.0
+offset_top = 576.0
+offset_right = 630.0
+offset_bottom = 603.0
+
 [node name="DeathScreen" type="ColorRect" parent="." unique_id=11272760]
 visible = false
 offset_right = 1152.0

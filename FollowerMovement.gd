@@ -63,7 +63,6 @@ func _physics_process(delta: float) -> void:
 	if abs(velocity.x) <= 0.1 and bindedPlayer != null:
 		var directionToPlayer = bindedPlayer.global_position - global_position
 		velocity.x += clamp(directionToPlayer.x,-0.1,0.1)
-		print("hhhhhhh")
 	
 	if velocity.x != 0:
 		if velocity.x > 0:

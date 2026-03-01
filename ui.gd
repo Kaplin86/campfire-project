@@ -15,3 +15,13 @@ func _process(delta: float) -> void:
 	
 	if died:
 		$DeathScreen.visible = true
+
+func showBlocksRem(current,total):
+	$BlocksRem.text = "Blocks Remaining: " + str(current) + " / " + str(total)
+
+func showResetBlockProgress(num):
+	$ResetBlocks.visible = true
+	$ResetBlocks.value = num
+
+func hideResetBlockProgress():
+	$ResetBlocks.visible = false

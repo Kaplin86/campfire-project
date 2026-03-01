@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cctmbjeub30h"]
+
+[ext_resource type="Script" uid="uid://dqljtuhqgtfme" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c2moyc7yb5itr" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://ctmqd0d4k41" path="res://caveGenScene.tscn" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://c3deqmoxxpk0i" path="res://cat.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://bohxamxblyk0x" path="res://tile_placing_system.gd" id="5_lquwl"]
+
+[node name="Node2D" type="Node2D" unique_id=1576695505 node_paths=PackedStringArray("plyr", "cat")]
+script = ExtResource("1_h2yge")
+plyr = NodePath("Player")
+cat = NodePath("Cat")
+
+[node name="Player" parent="." unique_id=1411649855 instance=ExtResource("1_ig7tw")]
+position = Vector2(230, 364)
+
+[node name="TileMapLayer" parent="." unique_id=1312139782 instance=ExtResource("3_1bvp3")]
+scale = Vector2(0.1, 0.1)
+
+[node name="Cat" parent="." unique_id=156113061 instance=ExtResource("4_1bvp3")]
+position = Vector2(200, 283)
+
+[node name="TilePlacingSystem" type="Node" parent="." unique_id=1864856191 node_paths=PackedStringArray("tilemap")]
+script = ExtResource("5_lquwl")
+tilemap = NodePath("../TileMapLayer")
+
+[connection signal="caveGenDone" from="TileMapLayer" to="." method="_on_tile_map_layer_cave_gen_done"]
