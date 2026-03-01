@@ -45,6 +45,7 @@ position = Vector2(200, 283)
 script = ExtResource("5_lquwl")
 tilemap = NodePath("../TileMapLayer")
 BlockCount = 15
+resetTime = 2
 
 [node name="EnemySpawningSystem" type="Node" parent="." unique_id=1371353805]
 script = ExtResource("6_7mycd")
