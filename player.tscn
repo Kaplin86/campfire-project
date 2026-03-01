@@ -8,20 +8,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(50.5, 30)
 
-[node name="Node2D" type="Node2D" unique_id=1411649855]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=884548109]
-position = Vector2(1, 1)
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=884548109]
 script = ExtResource("1_onrkg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=464826841]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=464826841]
 shape = SubResource("CapsuleShape2D_0xm2m")
 
-[node name="Icon" type="Sprite2D" parent="CharacterBody2D" unique_id=746842756]
+[node name="Icon" type="Sprite2D" parent="." unique_id=746842756]
 scale = Vector2(0.16842489, 0.21606223)
 texture = ExtResource("2_i3pqv")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CharacterBody2D" unique_id=945460071]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=945460071]
 offset_left = -9.0
 offset_top = -26.000002
 offset_right = 119.0
@@ -31,12 +28,14 @@ max_value = 10.0
 value = 10.0
 texture_progress = ExtResource("2_i3pqv")
 
-[node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=504288181]
+[node name="Area2D" type="Area2D" parent="." unique_id=504288181]
 position = Vector2(-90, 10)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=791935209]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=791935209]
 position = Vector2(76.75, -10)
 shape = SubResource("RectangleShape2D_onrkg")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=996967853]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=996967853]
 zoom = Vector2(3.545, 3.545)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1411649855]

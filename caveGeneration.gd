@@ -1,0 +1,48 @@
+extends TileMapLayer
+
+var heightsOfSegment = {}
+var spawnPosition = null
+
+signal caveGenDone
+
+func indexSegments():
+	pass
+
+
+func _ready() -> void:
+	
+	#kkkkkkkkkaplin!!!!!!!!11
+	_generate_cave(500,300)
+	
+	
+	
+
+func _generate_cave(cavewidth,caveheight):
+	var patternCount = tile_set.get_patterns_count()
+	for w in cavewidth:
+		for h in caveheight:
+			set_cell(Vector2i(w,h),0,Vector2i.ZERO)
+	
+	var Ylevel = caveheight - 90
+	var Xpos = floor(cavewidth / 2)
+	set_pattern(Vector2i(Xpos,Ylevel),tile_set.get_pattern(0))
+	spawnPosition = map_to_local(Vector2i(Xpos,Ylevel))
+	for I in caveheight / 3:
+		var pickedPattern = randi_range(0,patternCount - 1)
+		var pickedPatternObject = tile_set.get_pattern(pickedPattern)
+		set_pattern(Vector2i(Xpos,Ylevel),pickedPatternObject)
+		Ylevel -= 2
+		Xpos += (1 - (randf() * 2)) * 20
+	
+	for Pos in get_used_cells_by_id(0,Vector2.ONE):
+		set_cell(Pos,-1)
+	
+	caveGenDone.emit()
+
+
+
+
+
+func _on_h_slider_value_changed(value: float) -> void:
+	print("BAA")
+	_generate_cave(500,300)

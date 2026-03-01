@@ -6,6 +6,7 @@ class_name FollowingEntity
 @export var isImportant = false
 @export var distanceBeforeJump = 50
 @export var movementSpeed = 6000
+@export var smart = false
 
 var bindedPlayer : PlayerCharacter = null
 
@@ -26,6 +27,7 @@ func _ready():
 	RePathTimer.start()
 	RePathTimer.timeout.connect(makepath);
 	navi.debug_enabled = true
+	navi.navigation_layers = 1
 
 func makepath():
 	if bindedPlayer:
@@ -38,10 +40,12 @@ func _physics_process(delta: float) -> void:
 	healthBar.value = health
 	
 	if bindedPlayer != null:
-		
-		var directionToPlayer = navi.get_next_path_position() - global_position
-		velocity.x = (directionToPlayer.normalized() * movementSpeed * delta).x
-		
+		if smart:
+			var directionToPlayer = navi.get_next_path_position() - global_position
+			velocity.x = (directionToPlayer.normalized() * movementSpeed * delta).x
+		else:
+			var directionToPlayer = bindedPlayer.global_position - global_position
+			velocity.x = (directionToPlayer.normalized() * movementSpeed * delta).x
 	
 	# the gravite
 	if is_on_floor():
