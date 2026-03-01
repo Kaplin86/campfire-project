@@ -14,7 +14,9 @@ func _process(delta):
 		var directionToPlayer = bindedPlayer.global_position - global_position
 		velocity.x = (directionToPlayer.normalized() * movementSpeed * delta).x
 		
+	
 	$TextureProgressBar.value = health
+	$TextureProgressBar.max_value = maxhp
 	if health <= 0:
 		queue_free()
 	if velocity.x != 0:

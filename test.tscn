@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c2moyc7yb5itr" path="res://player.tscn" id="1_37kl0"]
 [ext_resource type="PackedScene" uid="uid://c1k30nfy3pq56" path="res://zombie.tscn" id="2_8uh7m"]
 [ext_resource type="PackedScene" uid="uid://c3deqmoxxpk0i" path="res://cat.tscn" id="3_6uqi0"]
-[ext_resource type="PackedScene" path="res://BabyZombie.tscn" id="4_ppyta"]
+[ext_resource type="PackedScene" uid="uid://0c3r7kc7030e" path="res://BabyZombie.tscn" id="4_ppyta"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8uh7m"]
 size = Vector2(467, 20)
