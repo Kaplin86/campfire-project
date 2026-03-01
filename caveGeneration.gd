@@ -12,7 +12,7 @@ func indexSegments():
 func _ready() -> void:
 	
 	#kkkkkkkkkaplin!!!!!!!!11
-	_generate_cave(500,300)
+	_generate_cave(500,900)
 	
 	
 	

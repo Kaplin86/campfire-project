@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var plyr : PlayerCharacter
-@export var cat :  d
+@export var cat : FollowingEntity
 
 
 func _on_tile_map_layer_cave_gen_done() -> void:
