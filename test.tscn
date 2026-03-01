@@ -3,12 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://c2moyc7yb5itr" path="res://player.tscn" id="1_37kl0"]
 [ext_resource type="PackedScene" uid="uid://c1k30nfy3pq56" path="res://zombie.tscn" id="2_8uh7m"]
 [ext_resource type="PackedScene" uid="uid://c3deqmoxxpk0i" path="res://cat.tscn" id="3_6uqi0"]
-[ext_resource type="PackedScene" uid="uid://0c3r7kc7030e" path="res://BabyZombie.tscn" id="4_ppyta"]
+[ext_resource type="PackedScene" path="res://BabyZombie.tscn" id="4_ppyta"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8uh7m"]
 size = Vector2(467, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uqi0"]
+size = Vector2(117, 20)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ppyta"]
+vertices = PackedVector2Array(258.27344, 376.8203, 247.61719, 370.20313, 247.10938, 363.03906, 541.8281, 552.9922, 260.1172, 377.96875, 719.2422, 381.02344, 1182.0313, 551.03125, 757.75, 352.78906, 1134.8281, 39.570313, 753.27344, 339.03125, 306.72656, 140.72656, 254.53906, -2.2890625, 245.28125, 336.97656, 233.49219, 169.60156, 464.6875, 278, 594.8828, 319, 625.7969, 290.77344, 483.22656, 319, 459.2578, 289.39063, 620.85156, 278)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(6, 5, 7), PackedInt32Array(8, 6, 7, 9), PackedInt32Array(10, 11, 8), PackedInt32Array(12, 13, 10, 8, 14), PackedInt32Array(9, 15, 16, 8), PackedInt32Array(15, 9, 12, 17), PackedInt32Array(18, 17, 12), PackedInt32Array(8, 16, 19), PackedInt32Array(14, 18, 12), PackedInt32Array(14, 8, 19)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(294, 135, 223, 163, 238, 376, 539, 563, 1193, 561, 1144, 30, 240, -13)])
 
 [node name="Test" type="Node2D" unique_id=619356361]
 
@@ -25,7 +31,7 @@ position = Vector2(61.5, 0)
 shape = SubResource("RectangleShape2D_8uh7m")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1207519559]
-position = Vector2(764, 519)
+position = Vector2(770, 464)
 collision_layer = 3
 collision_mask = 3
 
@@ -48,14 +54,28 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1814334183]
-position = Vector2(0, -3)
+position = Vector2(37.5, -3)
 shape = SubResource("RectangleShape2D_6uqi0")
 
 [node name="BaseEnemy" parent="." unique_id=21257629 instance=ExtResource("2_8uh7m")]
-position = Vector2(534, 253)
+position = Vector2(836, 382)
 
 [node name="Cat" parent="." unique_id=156113061 instance=ExtResource("3_6uqi0")]
 position = Vector2(263, 175)
 
 [node name="BaseEnemy2" parent="." unique_id=848882131 instance=ExtResource("4_ppyta")]
-position = Vector2(680, 226)
+position = Vector2(979, 301)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1232231153]
+navigation_polygon = SubResource("NavigationPolygon_ppyta")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="NavigationRegion2D" unique_id=102755809]
+radius = 5.0
+vertices = PackedVector2Array(471, 288, 488, 309, 591, 309, 614, 288)
+affect_navigation_mesh = true
+
+[node name="NavigationObstacle2D2" type="NavigationObstacle2D" parent="NavigationRegion2D" unique_id=1573452366]
+position = Vector2(-224, 59)
+radius = 5.0
+vertices = PackedVector2Array(471, 288, 488, 309, 940, 312, 970, 290)
+affect_navigation_mesh = true

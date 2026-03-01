@@ -39,4 +39,7 @@ show_behind_parent = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision" unique_id=2056568542]
 shape = SubResource("CircleShape2D_52fj1")
 
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=719452339]
+target_position = Vector2(107, -93)
+
 [connection signal="body_entered" from="Vision" to="." method="_on_vision_body_entered"]
