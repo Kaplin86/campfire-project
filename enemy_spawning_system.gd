@@ -12,8 +12,10 @@ func _process(delta: float) -> void:
 		var finalPosition = $"../Player".global_position + offset
 		
 		var tilePos = $"../TileMapLayer".local_to_map($"../TileMapLayer".to_local(finalPosition))
-		if $"../TileMapLayer".get_cell_source_id(tilePos) == -1:
-			var NewEnemy = enemies.pick_random().instantiate()
-			get_parent().add_child(NewEnemy)
-			NewEnemy.global_position = finalPosition
+		if $"../TileMapLayer".get_cell_source_id(tilePos) == 0:
+			if $"../TileMapLayer".get_cell_atlas_coords(tilePos) == Vector2i.ONE:
+				var NewEnemy = enemies.pick_random().instantiate()
+				get_parent().add_child(NewEnemy)
+				NewEnemy.global_position = finalPosition
+			
 		

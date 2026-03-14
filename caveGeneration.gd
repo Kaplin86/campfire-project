@@ -24,9 +24,9 @@ func _ready() -> void:
 
 func _generate_cave(cavewidth,caveheight):
 	var patternCount = tile_set.get_patterns_count()
-	for w in cavewidth:
-		for h in caveheight:
-			set_cell(Vector2i(w,h),0,Vector2i.ZERO)
+	#for w in cavewidth:
+	#	for h in caveheight:
+	#		set_cell(Vector2i(w,h),0,Vector2i.ZERO)
 	
 	var Ylevel = caveheight - 90
 	var Xpos = floor(cavewidth / 2)
@@ -43,9 +43,17 @@ func _generate_cave(cavewidth,caveheight):
 	var highestY = 999
 	
 	for Pos in get_used_cells_by_id(0,Vector2.ONE):
-		set_cell(Pos,-1)
-		if Pos.y < highestY:
-			highestY = Pos.y
+		if get_cell_source_id(get_neighbor_cell(Pos,TileSet.CELL_NEIGHBOR_LEFT_SIDE)) == -1:
+			set_cell(Pos,0,Vector2.ZERO)
+		if get_cell_source_id(get_neighbor_cell(Pos,TileSet.CELL_NEIGHBOR_TOP_SIDE)) == -1:
+			set_cell(Pos,0,Vector2.ZERO)
+		if get_cell_source_id(get_neighbor_cell(Pos,TileSet.CELL_NEIGHBOR_BOTTOM_SIDE)) == -1:
+			set_cell(Pos,0,Vector2.ZERO)
+		if get_cell_source_id(get_neighbor_cell(Pos,TileSet.CELL_NEIGHBOR_RIGHT_SIDE)) == -1:
+			set_cell(Pos,0,Vector2.ZERO)
+		#set_cell(Pos,-1)
+		#if Pos.y < highestY:
+		#	highestY = Pos.y
 	
 	highestY += 2
 	highestYShare = highestY

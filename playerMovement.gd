@@ -41,6 +41,7 @@ func _physics_process(delta: float) -> void:
 		inAirLastFrame = false
 		var damageToTake = floor(lastAirVelocity.y / fallDamage)
 		print(lastAirVelocity.y)
+		damageToTake = max(0,damageToTake)
 		health = health - damageToTake
 	
 	# Handle jump.

@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 				var tilePos = tilemap.local_to_map(tilemap.to_local(mouseToMap))
 				
 				if tilemap.get_cell_atlas_coords(tilePos) != Vector2i(1,0):
-					if tilemap.get_cell_source_id(tilePos) == -1:
+					if tilemap.get_cell_source_id(tilePos) == 0:
 						tilemap.set_cell(tilePos,0,Vector2i(1,0))
 						blocksUsedSoFar += 1
 						Ui.showBlocksRem(BlockCount - blocksUsedSoFar,BlockCount)
@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 			
 			if progresspercent >= 1:
 				for cell in tilemap.get_used_cells_by_id(0,buildingTileAtlasCords):
-					tilemap.set_cell(cell,-1)
+					tilemap.set_cell(cell,0,Vector2.ONE)
 				blocksUsedSoFar = 0
 				Ui.showBlocksRem(BlockCount - blocksUsedSoFar,BlockCount)
 			
