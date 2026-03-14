@@ -52,11 +52,12 @@ func _generate_cave(cavewidth,caveheight):
 		if get_cell_source_id(get_neighbor_cell(Pos,TileSet.CELL_NEIGHBOR_RIGHT_SIDE)) == -1:
 			set_cell(Pos,0,Vector2.ZERO)
 		#set_cell(Pos,-1)
-		#if Pos.y < highestY:
-		#	highestY = Pos.y
+		if Pos.y < highestY:
+			highestY = Pos.y
 	
 	highestY += 2
 	highestYShare = highestY
+	
 	
 	for I in 50:
 		for X in cavewidth:
