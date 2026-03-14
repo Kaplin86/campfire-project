@@ -65,6 +65,7 @@ script = ExtResource("2_ibotj")
 scene = "res://mainMenu.tscn"
 
 [node name="WinScreen" type="ColorRect" parent="." unique_id=802576026]
+visible = false
 offset_right = 1151.0
 offset_bottom = 648.0
 

@@ -21,6 +21,8 @@ func _ready() -> void:
 	# adds it self to the ui's player objects
 	Ui.playerObjects.append(self)
 	$AnimatedSprite2D.play()
+	
+	$AnimatedSprite2D.modulate = Ui.plyrColor
 
 func _physics_process(delta: float) -> void:
 	timeSincePunch += delta

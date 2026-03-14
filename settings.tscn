@@ -4,6 +4,8 @@
 [ext_resource type="AudioStream" uid="uid://djuu5ybflqv8r" path="res://Music/CatInTheCavernMainTheme.mp3" id="2_3ykye"]
 [ext_resource type="Script" path="res://loopingMusic.gd" id="3_gc0em"]
 [ext_resource type="Script" uid="uid://qn1vdi5ju28b" path="res://SceneButton.gd" id="4_cj1lu"]
+[ext_resource type="Texture2D" uid="uid://d074b1hveahp5" path="res://plyrSprites/idle1.svg" id="5_cj1lu"]
+[ext_resource type="Script" uid="uid://drx3m7hr41sxe" path="res://color_picker.gd" id="6_71mqq"]
 
 [node name="Node2D" type="Node2D" unique_id=1272910820]
 
@@ -48,6 +50,23 @@ text = "Back"
 script = ExtResource("4_cj1lu")
 scene = "res://mainMenu.tscn"
 
+[node name="Idle1" type="Sprite2D" parent="." unique_id=309042941]
+position = Vector2(928, 452)
+scale = Vector2(2.5694444, 2.3248174)
+texture = ExtResource("5_cj1lu")
+
+[node name="ColorPicker" type="ColorPicker" parent="." unique_id=1359587667]
+offset_left = 479.0
+offset_top = 199.0
+offset_right = 777.0
+offset_bottom = 638.0
+edit_alpha = false
+sampler_visible = false
+color_modes_visible = false
+presets_visible = false
+script = ExtResource("6_71mqq")
+
 [connection signal="drag_ended" from="HSlider" to="HSlider" method="_on_drag_ended"]
 [connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="color_changed" from="ColorPicker" to="ColorPicker" method="_on_color_changed"]
