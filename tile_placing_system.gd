@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 				var mouseToMap = get_viewport().get_camera_2d().get_global_mouse_position()
 				var tilePos = tilemap.local_to_map(tilemap.to_local(mouseToMap))
 				
-				if tilemap.get_cell_atlas_coords(tilePos) != Vector2i(1,0):
+				if tilemap.get_cell_atlas_coords(tilePos) == Vector2i.ONE:
 					if tilemap.get_cell_source_id(tilePos) == 0:
 						tilemap.set_cell(tilePos,0,Vector2i(1,0))
 						blocksUsedSoFar += 1

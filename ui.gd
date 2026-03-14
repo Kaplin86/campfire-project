@@ -6,7 +6,7 @@ var catObjects : Array[FollowingEntity] = []
 
 var isDeadOrWin = false;
 
-var plyrColor = Color.WHITE
+var plyrColor = Color("2c2c2c")
 
 func resetVisuals():
 	$DeathScreen.visible = false
