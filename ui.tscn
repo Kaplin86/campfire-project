@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://c1ed1lt2xo5nj" path="res://ui.gd" id="1_fyqef"]
 [ext_resource type="Texture2D" uid="uid://dc4ggosw32615" path="res://plyrSprites/thumbup.svg" id="2_27fn8"]
 [ext_resource type="Script" uid="uid://qn1vdi5ju28b" path="res://SceneButton.gd" id="2_ibotj"]
-[ext_resource type="PackedScene" uid="uid://do48t7k4g0og7" path="res://mainMenu.tscn" id="3_n5ude"]
 [ext_resource type="Texture2D" uid="uid://ccit0hvqilqit" path="res://catSprites/walk1.svg" id="3_nltto"]
 
 [node name="UI" type="CanvasLayer" unique_id=1841209928]
@@ -63,10 +62,9 @@ offset_bottom = 527.0
 theme_override_font_sizes/font_size = 39
 text = "Main Menu"
 script = ExtResource("2_ibotj")
-scene = ExtResource("3_n5ude")
+scene = "res://mainMenu.tscn"
 
 [node name="WinScreen" type="ColorRect" parent="." unique_id=802576026]
-visible = false
 offset_right = 1151.0
 offset_bottom = 648.0
 
@@ -102,7 +100,7 @@ offset_bottom = 262.0
 theme_override_font_sizes/font_size = 39
 text = "Main Menu"
 script = ExtResource("2_ibotj")
-scene = ExtResource("3_n5ude")
+scene = "res://mainMenu.tscn"
 
 [connection signal="pressed" from="DeathScreen/Button" to="DeathScreen/Button" method="_on_pressed"]
 [connection signal="pressed" from="WinScreen/Button" to="WinScreen/Button" method="_on_pressed"]

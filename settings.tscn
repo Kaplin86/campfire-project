@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://hj7irsyw4d4f"]
+
+[ext_resource type="Script" uid="uid://ceetxyngqc1b0" path="res://h_slider.gd" id="1_x2hje"]
+[ext_resource type="AudioStream" uid="uid://djuu5ybflqv8r" path="res://Music/CatInTheCavernMainTheme.mp3" id="2_3ykye"]
+[ext_resource type="Script" path="res://loopingMusic.gd" id="3_gc0em"]
+[ext_resource type="Script" uid="uid://qn1vdi5ju28b" path="res://SceneButton.gd" id="4_cj1lu"]
+
+[node name="Node2D" type="Node2D" unique_id=1272910820]
+
+[node name="Label2" type="Label" parent="." unique_id=464755131]
+offset_left = 717.0
+offset_top = 13.0
+offset_right = 1106.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 100
+text = "settings"
+
+[node name="Label" type="Label" parent="." unique_id=824948382]
+offset_left = 54.0
+offset_top = 160.0
+offset_right = 297.0
+offset_bottom = 213.0
+theme_override_font_sizes/font_size = 35
+text = "Music Volume"
+
+[node name="HSlider" type="HSlider" parent="." unique_id=1527443803]
+modulate = Color(0.99085087, 0.51336336, 0.43683493, 1)
+offset_left = 372.0
+offset_top = 179.0
+offset_right = 1061.0
+offset_bottom = 195.0
+value = 100.0
+script = ExtResource("1_x2hje")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=268867301]
+stream = ExtResource("2_3ykye")
+pitch_scale = 0.8
+autoplay = true
+script = ExtResource("3_gc0em")
+
+[node name="Button" type="Button" parent="." unique_id=1388299213]
+offset_left = 78.0
+offset_top = 30.0
+offset_right = 617.0
+offset_bottom = 141.0
+theme_override_font_sizes/font_size = 75
+text = "Back"
+script = ExtResource("4_cj1lu")
+scene = "res://mainMenu.tscn"
+
+[connection signal="drag_ended" from="HSlider" to="HSlider" method="_on_drag_ended"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

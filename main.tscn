@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://c3deqmoxxpk0i" path="res://cat.tscn" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://bohxamxblyk0x" path="res://tile_placing_system.gd" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://unbyk3edspqj" path="res://enemy_spawning_system.gd" id="6_7mycd"]
-[ext_resource type="Script" uid="uid://dgxx6gxvjx1ie" path="res://depth_display_system.gd" id="8_5vw27"]
+[ext_resource type="Script" path="res://depth_display_system.gd" id="8_5vw27"]
 [ext_resource type="AudioStream" uid="uid://djuu5ybflqv8r" path="res://Music/CatInTheCavernMainTheme.mp3" id="9_4c57u"]
-[ext_resource type="Script" uid="uid://b6iv4qjfk20a6" path="res://loopingMusic.gd" id="10_efxa6"]
+[ext_resource type="Script" path="res://loopingMusic.gd" id="10_efxa6"]
 [ext_resource type="PackedScene" uid="uid://c5kb1q3sfrpmo" path="res://tutorial.tscn" id="11_efxa6"]
 
 [sub_resource type="Gradient" id="Gradient_pj2mc"]

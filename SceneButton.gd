@@ -1,9 +1,9 @@
 extends Button
-@export var scene : PackedScene
+@export var scene : String
 
 
 func _on_pressed() -> void:
-	Transition.goToPackedScene(scene)
+	Transition.goToTextScene(scene)
 	disabled = true
 	await get_tree().create_timer(3).timeout
 	disabled = false

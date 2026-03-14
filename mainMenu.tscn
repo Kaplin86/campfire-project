@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://do48t7k4g0og7"]
 
-[ext_resource type="Script" uid="uid://c6iawfv6dy2lw" path="res://main_menu.gd" id="1_hvu0j"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_hvu0j"]
 [ext_resource type="Texture2D" uid="uid://bvb62bmn5ps6j" path="res://miscImages/light.svg" id="1_wc2lj"]
 [ext_resource type="Texture2D" uid="uid://6w8icv6te5ak" path="res://miscImages/Frame 1 (2).svg" id="1_wut1r"]
 [ext_resource type="AudioStream" uid="uid://djuu5ybflqv8r" path="res://Music/CatInTheCavernMainTheme.mp3" id="2_w7d22"]
-[ext_resource type="Script" uid="uid://b6iv4qjfk20a6" path="res://loopingMusic.gd" id="3_wc2lj"]
+[ext_resource type="Script" path="res://loopingMusic.gd" id="3_wc2lj"]
 [ext_resource type="Script" uid="uid://qn1vdi5ju28b" path="res://SceneButton.gd" id="5_wked4"]
-[ext_resource type="PackedScene" uid="uid://cctmbjeub30h" path="res://main.tscn" id="6_c3jr6"]
 
 [sub_resource type="Gradient" id="Gradient_wc2lj"]
 offsets = PackedFloat32Array(0, 0.536, 1)
@@ -66,7 +65,7 @@ offset_bottom = 371.0
 theme_override_font_sizes/font_size = 39
 text = "Play"
 script = ExtResource("5_wked4")
-scene = ExtResource("6_c3jr6")
+scene = "res://main.tscn"
 
 [node name="Button2" type="Button" parent="." unique_id=1148376322]
 offset_left = 344.0
@@ -76,6 +75,8 @@ offset_bottom = 412.0
 scale = Vector2(8.360808, 2.2968335)
 theme_override_font_sizes/font_size = 10
 text = "Settings"
+script = ExtResource("5_wked4")
+scene = "res://settings.tscn"
 
 [node name="Panel" type="Panel" parent="." unique_id=529004747]
 offset_left = 543.0
@@ -99,3 +100,4 @@ This game contains [b]Procedural Cave Generation [/b], so there is a chance a le
 
 [connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
