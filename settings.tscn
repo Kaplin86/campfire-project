@@ -70,7 +70,7 @@ presets_visible = false
 script = ExtResource("6_71mqq")
 
 [node name="CheckBox" type="CheckBox" parent="." unique_id=524630594]
-modulate = Color(1, 0.40392157, 1, 1)
+modulate = Color(1, 0.40392157, 0, 1)
 offset_left = 22.0
 offset_top = 592.0
 offset_right = 113.0
